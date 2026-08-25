@@ -1,12 +1,12 @@
 <div align="center">
 
-# AI Website Cloner Template 中文版
+# Astro AI Website Cloner 中文版
 
 ### 一条命令，克隆任意网站
 
 只需给你的 AI 编程代理一个 URL，它就会将该网站重新构建成一个简洁的 Astro 网站。
 
-基于 [JCodesMore 的 AI Website Cloner](https://github.com/JCodesMore/ai-website-cloner-template)。
+本项目是 [Astro AI Website Cloner](https://github.com/altenhofen/astro-ai-website-cloner)，基于 [JCodesMore 的 AI Website Cloner](https://github.com/JCodesMore/ai-website-cloner-template) 改造而来。
 
 </div>
 

@@ -1,12 +1,12 @@
 <div align="center">
 
-# AI ウェブサイトクローンテンプレート
+# Astro AI ウェブサイトクローン
 
 ### 1つのコマンドで、あらゆるウェブサイトをクローン
 
 AI コーディングエージェントに URL を渡すだけで、ウェブサイトをクリーンな Astro サイトとして再現できます。
 
-[JCodesMore の AI Website Cloner](https://github.com/JCodesMore/ai-website-cloner-template) をベースにしています。
+このプロジェクトは [Astro AI ウェブサイトクローン](https://github.com/altenhofen/astro-ai-website-cloner) です。[JCodesMore の AI Website Cloner](https://github.com/JCodesMore/ai-website-cloner-template) をベースにしています。
 
 </div>
 

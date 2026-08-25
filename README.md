@@ -1,12 +1,12 @@
 <div align="center">
 
-# AI Website Cloner Template
+# Astro AI Website Cloner
 
 ### Clone any website with one command
 
 Give your AI coding agent a URL and watch it recreate the website as a clean Astro site.
 
-Based on the [AI Website Cloner by JCodesMore](https://github.com/JCodesMore/ai-website-cloner-template)
+This project is [Astro AI Website Cloner](https://github.com/altenhofen/astro-ai-website-cloner), adapted from the [AI Website Cloner by JCodesMore](https://github.com/JCodesMore/ai-website-cloner-template).
 
 </div>
 
