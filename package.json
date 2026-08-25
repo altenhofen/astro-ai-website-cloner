@@ -3,7 +3,7 @@
   "version": "0.4.0",
   "private": true,
   "description": "Clone any website into a clean, modern Astro site using AI coding agents",
-  "author": "JCodesMore",
+  "author": "altenhofen",
   "license": "MIT",
   "repository": {
     "type": "git",
