@@ -2,7 +2,7 @@
 
 ## How to Reverse-Engineer Any Website
 
-This guide outlines what to capture when inspecting a target website via Chrome MCP or browser DevTools.
+This guide outlines what to capture when inspecting a target website via Chrome MCP or browser DevTools, then rebuilding it with Astro, HTML, Tailwind CSS, and vanilla JavaScript.
 
 ## Phase 1: Visual Audit
 
@@ -62,13 +62,14 @@ For each distinct UI component, document:
 
 ## Phase 4: Technical Stack Analysis
 
-- [ ] **Framework** — React? Vue? Angular? Check `__NEXT_DATA__`, `__NUXT__`, `ng-version`
-- [ ] **CSS approach** — Tailwind (utility classes), CSS Modules, Styled Components, Emotion, vanilla CSS
-- [ ] **State management** — Redux (check DevTools), React Query, Zustand, Pinia
+- [ ] **Framework** — Astro? React? Vue? Angular? Inspect generated HTML, framework markers, and runtime scripts
+- [ ] **CSS approach** — Tailwind, CSS Modules, Styled Components, Emotion, vanilla CSS
+- [ ] **State management** — browser state, URL state, Redux, React Query, Zustand, Pinia
 - [ ] **API patterns** — REST, GraphQL (check network tab for `/graphql` requests)
-- [ ] **Font loading** — Google Fonts, self-hosted, system fonts
+- [ ] **Font loading** — Google Fonts, self-hosted fonts, system fonts
 - [ ] **Image strategy** — CDN, lazy loading, srcset, WebP/AVIF
-- [ ] **Animation library** — Framer Motion, GSAP, CSS transitions only
+- [ ] **Animation library** — CSS transitions, Web Animations API, GSAP, Framer Motion, or another runtime
+- [ ] **Client behavior** — event listeners, data attributes, URL/hash state, storage, observers
 
 ## Phase 5: Documentation Output
 
@@ -77,4 +78,4 @@ After inspection, create these files in `docs/research/`:
 2. `COMPONENT_INVENTORY.md` — Every component with structure notes
 3. `LAYOUT_ARCHITECTURE.md` — Page layouts, grid system, responsive behavior
 4. `INTERACTION_PATTERNS.md` — Animations, transitions, hover states
-5. `TECH_STACK_ANALYSIS.md` — What the site uses and our chosen equivalents
+5. `TECH_STACK_ANALYSIS.md` — What the site uses and our Astro/HTML/Tailwind/vanilla-JS equivalents

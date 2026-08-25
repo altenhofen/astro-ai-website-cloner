@@ -11,7 +11,7 @@ services:
       - "${PORT:-3000}:3000"
     environment:
       - NODE_ENV=production
-      - NEXT_TELEMETRY_DISABLED=1
+      - ASTRO_TELEMETRY_DISABLED=1
     env_file:
       - path: .env.local
         required: false
@@ -35,7 +35,7 @@ services:
       - "${DEV_PORT:-3001}:3000"
     environment:
       - NODE_ENV=development
-      - NEXT_TELEMETRY_DISABLED=1
+      - ASTRO_TELEMETRY_DISABLED=1
     env_file:
       - path: .env.local
         required: false
@@ -44,7 +44,7 @@ services:
     volumes:
       - .:/app
       - /app/node_modules
-      - /app/.next
+      - /app/.astro
     healthcheck:
       test: ["CMD-SHELL", "wget -qO- http://localhost:3000/ || exit 1"]
       interval: 30s

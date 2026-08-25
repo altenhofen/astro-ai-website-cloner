@@ -1,36 +1,29 @@
-<!-- BEGIN:nextjs-agent-rules -->
-
-# This is NOT the Next.js you know
-
-This version has breaking changes — APIs, conventions, and file structure may all differ from your training data. Read the relevant guide in `node_modules/next/dist/docs/` (resolved from this file's directory; in monorepos the `next` package may not be visible from the repo root) before writing any code. Heed deprecation notices.
-
-This block is written and re-added by `next dev` — verify at `node_modules/next/dist/server/lib/generate-agent-files.js`. Removing it from a diff only re-creates the uncommitted change; committing it with your work keeps the tree clean.
-
-<!-- END:nextjs-agent-rules -->
-
 # Website Reverse-Engineer Template
 
 ## What This Is
-A reusable template for reverse-engineering any website into a clean, modern Next.js codebase using AI coding agents. The Next.js + shadcn/ui + Tailwind v4 base is pre-scaffolded — just run `/clone-website <url1> [<url2> ...]`.
+A reusable template for reverse-engineering any website into a clean, static Astro site using AI coding agents. The Astro + HTML + Tailwind CSS v4 base is pre-scaffolded — follow the clone workflow in `docs/research/CLONE_WORKFLOW.md` for each target URL.
 
 ## Tech Stack
-- **Framework:** Next.js 16 (App Router, React 19, TypeScript strict)
-- **UI:** shadcn/ui (Radix primitives, Tailwind CSS v4, `cn()` utility)
-- **Icons:** Lucide React (default — will be replaced/supplemented by extracted SVGs)
-- **Styling:** Tailwind CSS v4 with oklch design tokens
-- **Deployment:** Vercel
+- **Framework:** Astro 7 with static output and file-based routing
+- **Markup:** Astro components that render semantic HTML
+- **Styling:** Tailwind CSS v4 through the official Vite plugin, with oklch design tokens
+- **Interactivity:** Browser-native vanilla JavaScript only; no React, JSX, framework islands, or hydration by default
+- **Deployment:** Any static host; `astro preview` is available for local/container previews
 
 ## Commands
-- `npm run dev` — Start dev server
-- `npm run build` — Production build
-- `npm run lint` — ESLint check
-- `npm run typecheck` — TypeScript check
+- `npm run dev` — Start the Astro development server
+- `npm run build` — Generate the production site in `dist/`
+- `npm run preview` — Preview the generated static site
+- `npm run lint` — Run ESLint for Astro and vanilla JavaScript files
+- `npm run typecheck` — Run `astro check`
 - `npm run check` — Run lint + typecheck + build
 
 ## Code Style
-- TypeScript strict mode, no `any`
-- Named exports, PascalCase components, camelCase utils
-- Tailwind utility classes, no inline styles
+- Use `.astro` files for page and component markup
+- Use semantic HTML and accessible native controls before adding JavaScript
+- Use plain `.js` modules and DOM APIs for client behavior
+- Use Tailwind utility classes; keep custom CSS in `src/styles/global.css` or scoped Astro styles
+- No React, JSX, shadcn/ui, or client framework dependencies
 - 2-space indentation
 - Responsive: mobile-first
 
@@ -43,27 +36,30 @@ A reusable template for reverse-engineering any website into a clean, modern Nex
 ## Project Structure
 ```
 src/
-  app/              # Next.js routes
-  components/       # React components
-    ui/             # shadcn/ui primitives
-    icons.tsx       # Extracted SVG icons as React components
-  lib/
-    utils.ts        # cn() utility (shadcn)
-  types/            # TypeScript interfaces
-  hooks/            # Custom React hooks
+  pages/            # Astro routes; index.astro maps to /
+  layouts/          # Shared HTML document layouts
+  components/       # Reusable .astro components
+  styles/           # Global Tailwind entrypoint and shared CSS
+  scripts/          # Vanilla browser JavaScript modules
 public/
   images/           # Downloaded images from target site
   videos/           # Downloaded videos from target site
   seo/              # Favicons, OG images, webmanifest
+  sites/            # Namespaced assets for cloned targets
+
 docs/
-  research/         # Inspection output (design tokens, components, layout)
+  research/         # Inspection output, clone workflow, and component specs
   design-references/ # Screenshots and visual references
-scripts/            # Asset download scripts
+scripts/            # Asset download scripts and repository tooling
 ```
 
-## MOST IMPORTANT NOTES
-- When launching Claude Code agent teams, ALWAYS have each teammate work in their own worktree branch and merge everyone's work at the end, resolving any merge conflicts smartly since you are basically serving the orchestrator role and have full context to our goals, work given, work achieved, and desired outcomes.
-- After editing `AGENTS.md`, run `bash scripts/sync-agent-rules.sh` to regenerate platform-specific instruction files.
-- After editing `.claude/skills/clone-website/SKILL.md`, run `node scripts/sync-skills.mjs` to regenerate the skill for all platforms.
+## Agent Standard
 
-@docs/research/INSPECTION_GUIDE.md
+`AGENTS.md` is the only repository-level instruction file. All agents should follow this document and the referenced research workflow; keep agent-specific behavior out of the repository.
+
+When delegating work, use isolated worktrees and preserve unrelated routes, components, research artifacts, screenshots, and asset namespaces. Run `npm run typecheck` and `npm run build` after meaningful changes. Do not introduce a framework island just to avoid writing a small DOM event handler.
+
+## Reference Documents
+
+- `docs/research/INSPECTION_GUIDE.md` — what to extract from a target site
+- `docs/research/CLONE_WORKFLOW.md` — the end-to-end Astro cloning workflow
